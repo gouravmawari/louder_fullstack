@@ -26,6 +26,7 @@ The app will be available at:
 #### Backend Setup
 ```bash
 cd louder-backend/louder-nest-backend
+# Create .env file with GEMINI_API_KEY and MONGODB_URI
 npm install
 npm run start:dev
 ```
