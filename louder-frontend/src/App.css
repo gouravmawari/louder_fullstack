@@ -1,0 +1,319 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  background-color: #0f0f0f;
+  color: #ffffff;
+  min-height: 100vh;
+}
+
+.app {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 20px 0;
+}
+
+.app-header h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+  line-height: 1.2;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.search-bar {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.search-input {
+  flex: 1;
+  padding: 16px 20px;
+  border: 2px solid #2a2a2a;
+  border-radius: 12px;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  font-size: 16px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.search-input::placeholder {
+  color: #888888;
+}
+
+.search-button {
+  padding: 16px 32px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.search-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+.search-input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: #151515;
+}
+
+.search-button.disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+  background: linear-gradient(135deg, #5568d3 0%, #6a4190 100%);
+}
+
+.button-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.loading-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid #ffffff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-message {
+  text-align: center;
+  font-size: 18px;
+  color: #888888;
+  margin-bottom: 30px;
+  font-style: italic;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.loading-message .loading-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(136, 136, 136, 0.3);
+  border-top: 2px solid #888888;
+}
+
+.no-results {
+  text-align: center;
+  color: #666666;
+  font-size: 16px;
+  padding: 40px 20px;
+  background-color: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  margin-top: 20px;
+}
+
+.results-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.search-group {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.search-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 8px 0;
+}
+
+.search-divider::before,
+.search-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #2a2a2a, transparent);
+}
+
+.search-timestamp {
+  color: #666666;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.venue-card {
+  background-color: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.venue-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+.venue-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.venue-info {
+  flex: 1;
+}
+
+.venue-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 8px 0;
+}
+
+.venue-location {
+  font-size: 16px;
+  color: #888888;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.venue-cost {
+  margin-left: 16px;
+}
+
+.cost-badge {
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.venue-why {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #cccccc;
+  margin: 0 0 16px 0;
+}
+
+.search-query {
+  padding-top: 16px;
+  border-top: 1px solid #2a2a2a;
+  font-size: 14px;
+  color: #666666;
+}
+
+.query-label {
+  font-weight: 600;
+  color: #888888;
+}
+
+@media (max-width: 768px) {
+  .app {
+    padding: 16px;
+  }
+  
+  .app-header {
+    padding: 16px 0;
+    margin-bottom: 30px;
+  }
+  
+  .app-header h1 {
+    font-size: 2.2rem;
+    line-height: 1.3;
+  }
+  
+  .venue-header {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .venue-cost {
+    margin-left: 0;
+    align-self: flex-start;
+  }
+  
+  .venue-card {
+    padding: 20px;
+  }
+  
+  .search-bar {
+    flex-direction: column;
+  }
+  
+  .search-button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .app {
+    padding: 12px;
+  }
+  
+  .app-header {
+    padding: 12px 0;
+    margin-bottom: 25px;
+  }
+  
+  .app-header h1 {
+    font-size: 1.8rem;
+    line-height: 1.4;
+  }
+  
+  .search-container {
+    margin-bottom: 30px;
+  }
+}
